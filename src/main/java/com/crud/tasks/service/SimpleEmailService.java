@@ -37,6 +37,9 @@ public class SimpleEmailService {
         mailMassage.setTo(mail.getMailTo());
         mailMassage.setSubject(mail.getSubject());
         mailMassage.setText(mail.getMessage());
+        if (mail.getToCc().length() > 0) {
+            mailMassage.setCc(mail.getToCc());
+        }
         return mailMassage;
     }
 }
