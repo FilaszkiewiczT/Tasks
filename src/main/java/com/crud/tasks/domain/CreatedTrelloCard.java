@@ -14,5 +14,5 @@ public class CreatedTrelloCard {
     private String id;
     private String name;
     private String shortUrl;
-    private BadgesDto badges;
+  //  private BadgesDto badges;
 }
