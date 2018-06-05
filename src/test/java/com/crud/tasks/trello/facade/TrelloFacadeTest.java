@@ -1,9 +1,6 @@
 package com.crud.tasks.trello.facade;
 
-import com.crud.tasks.domain.TrelloBoard;
-import com.crud.tasks.domain.TrelloBoardDto;
-import com.crud.tasks.domain.TrelloList;
-import com.crud.tasks.domain.TrelloListDto;
+import com.crud.tasks.domain.*;
 import com.crud.tasks.service.TrelloService;
 import com.crud.tasks.trello.mapper.TrelloMapper;
 import com.crud.tasks.trello.validator.TrelloValidator;
@@ -18,6 +15,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyList;
+import static org.mockito.Matchers.notNull;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -95,5 +93,14 @@ public class TrelloFacadeTest {
                 assertEquals(false, trelloListDto.isClosed());
             });
         });
+    }
+    @Test
+    public void testCreateCard() {
+        //Given
+        TrelloCardDto trelloCardDto = new TrelloCardDto("name", "testDescription", "testPos", "1");
+        //When
+        CreatedTrelloCardDto createdTrelloCardDto = trelloFacade.createCard(trelloCardDto);
+        //Then
+        assertEquals(null, createdTrelloCardDto);
     }
 }
